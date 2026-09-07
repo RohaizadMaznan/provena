@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
+- **`ContextTrail.close()` now closes the backend even if flushing the buffer fails** — the two calls are wrapped in `try/finally`, so a disk-full or I/O error during the final buffer flush no longer leaks the SQLite connection or skips the WAL checkpoint (#144)
 - **`annotate()` rejects non-positive record IDs with a clear error.** In
   buffered mode `log()` returns `TrailRecord(id=-1)` until the record is
   flushed, and passing that placeholder to `annotate()` previously surfaced a
