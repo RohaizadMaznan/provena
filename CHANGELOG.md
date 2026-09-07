@@ -22,6 +22,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
+- **`SIGTERM` flushes every active `WriteBuffer`** through one process-wide
+  handler instead of replacing the previous buffer's handler whenever another
+  buffered trail is created (#112)
 - **`verify_chain()` now flushes pending buffered records before verification** so its verdict always covers the complete trail instead of silently checking only the persisted prefix (#142)
 - **`ContextTrail.close()` now closes the backend even if flushing the buffer fails** — the two calls are wrapped in `try/finally`, so a disk-full or I/O error during the final buffer flush no longer leaks the SQLite connection or skips the WAL checkpoint (#144)
 - **`annotate()` rejects non-positive record IDs with a clear error.** In
