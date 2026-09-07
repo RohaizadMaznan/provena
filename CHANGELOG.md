@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-09-07
+
 ### Added
 
 - **`provena audit` gains `--provenance-status` and `--freshness-status`
