@@ -22,6 +22,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
+- **CLI compliance reports now contain the same audit evidence in JSON, text,
+  and PDF formats** by routing every compliance format through the shared report
+  generator. JSON and text no longer omit the compliance score, issue list, or
+  EU AI Act article checks (#93)
 - **`SIGTERM` flushes every active `WriteBuffer`** through one process-wide
   handler instead of replacing the previous buffer's handler whenever another
   buffered trail is created (#112)
